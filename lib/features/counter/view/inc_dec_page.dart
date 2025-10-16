@@ -13,7 +13,11 @@ class IncDecPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Increment / Decrement'),
       ),
-      body: const Center(child: Text('Counter Page')),
+      body: Center(child: BlocBuilder<CounterBloc, int>(
+        builder: (context, counter) {
+          return Text('Counting You $counter');
+        },
+      )),
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
