@@ -3,11 +3,13 @@ import 'router.dart';
 import 'theme.dart';
 
 class MalaysiaSocialApp extends StatelessWidget {
-  const MalaysiaSocialApp({super.key});
+  final bool isAuthed;
+
+  const MalaysiaSocialApp({super.key, required this.isAuthed});
 
   @override
   Widget build(BuildContext context) {
-    final router = buildRouter();
+    final router = buildRouter(isAuthed: isAuthed);
     return MaterialApp.router(
       title: 'Malaysia Social',
       theme: buildTheme(),
