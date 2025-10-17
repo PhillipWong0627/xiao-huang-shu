@@ -29,7 +29,7 @@ class _FeedViewState extends State<FeedView> {
           IconButton(
             icon: const Icon(Icons.navigate_next),
             onPressed: () {
-              context.push('/counter');
+              context.push('/todo');
             },
           ),
         ],

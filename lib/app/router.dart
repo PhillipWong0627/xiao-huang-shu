@@ -4,6 +4,8 @@ import 'package:social_app/features/auth/views/feed_view.dart';
 import 'package:social_app/features/counter/view/inc_dec_page.dart';
 import 'package:social_app/features/auth/views/otp_view.dart';
 import 'package:social_app/features/auth/views/phone_input_view.dart';
+import 'package:social_app/features/todo/addTodo.dart';
+import 'package:social_app/features/todo/todo_list.dart';
 
 GoRouter buildRouter({required bool isAuthed}) {
   return GoRouter(
@@ -27,6 +29,14 @@ GoRouter buildRouter({required bool isAuthed}) {
         path: '/counter',
         builder: (context, state) => const IncDecPage(),
       ),
+      GoRoute(
+        path: '/todo',
+        builder: (context, state) => const ToDoList(),
+      ),
+      GoRoute(
+        path: '/add-todo',
+        builder: (context, state) => const AddTodoPage(),
+      )
     ],
   );
 }
