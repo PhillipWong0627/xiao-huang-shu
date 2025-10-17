@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:social_app/features/auth/bloc/auth/auth_bloc.dart';
-import 'package:social_app/features/auth/bloc/auth/auth_event.dart';
+import 'package:social_app/features/auth/bloc/auth_bloc.dart';
+import 'package:social_app/features/auth/bloc/auth_event.dart';
 import 'package:social_app/features/counter/bloc/counter_bloc.dart';
 
 class FeedView extends StatefulWidget {

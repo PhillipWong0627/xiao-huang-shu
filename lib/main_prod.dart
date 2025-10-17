@@ -9,7 +9,7 @@ import 'package:social_app/features/todo/cubit/todo_cubit.dart';
 import 'app/app.dart';
 import 'app/di.dart';
 import 'core/config/app_config.dart';
-import 'features/auth/bloc/auth/auth_bloc.dart';
+import 'features/auth/bloc/auth_bloc.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
