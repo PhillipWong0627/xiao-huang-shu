@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:social_app/features/counter/bloc/counter_bloc.dart';
 import 'package:social_app/features/counter/cubit/counter_cubit.dart';
+import 'package:social_app/features/todo/cubit/todo_cubit.dart';
 
 import 'app/app.dart';
 import 'app/di.dart';
@@ -29,6 +30,9 @@ Future<void> main() async {
         ),
         BlocProvider(
           create: (_) => CounterCubit(),
+        ),
+        BlocProvider(
+          create: (_) => TodoCubit(),
         ),
       ],
       child: MalaysiaSocialApp(isAuthed: initialAuthed), // 👈 pass to app
