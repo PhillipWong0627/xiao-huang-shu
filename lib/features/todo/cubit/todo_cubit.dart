@@ -19,8 +19,14 @@ class TodoCubit extends Cubit<List<Todo>> {
   }
 
   // in TodoCubit
-  void restore(Todo todo) {
-    emit([...state, todo]);
+  void restore(Todo item, {int? at}) {
+    final list = [...state];
+    if (at != null && at >= 0 && at <= list.length) {
+      list.insert(at, item); // restore at same position
+    } else {
+      list.add(item); // or append to end
+    }
+    emit(list);
   }
 
   // UPDATE — toggle by id
@@ -51,6 +57,21 @@ class TodoCubit extends Cubit<List<Todo>> {
   // DELETE — by id
   void remove(String id) {
     emit(state.where((t) => t.id != id).toList(growable: false));
+  }
+
+  void removeMany(Iterable<String> ids) {
+    final idSet = ids.toSet();
+    emit(state.where((t) => !idSet.contains(t.id)).toList(growable: false));
+  }
+
+  void toggleDoneMany(Iterable<String> ids, {bool? to}) {
+    final idSet = ids.toSet();
+    final list = state.map((t) {
+      if (!idSet.contains(t.id)) return t;
+      final nextDone = to ?? !t.done;
+      return t.copyWith(done: nextDone);
+    }).toList(growable: false);
+    emit(list);
   }
 
   // BULK — clear completed
